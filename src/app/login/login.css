@@ -1,0 +1,82 @@
+/* login.css */
+
+body{
+    margin: 0;
+    padding: auto;
+   
+}
+
+main{
+    min-height: 90vh;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    align-items: center;
+  }
+  
+  .login-container h2 {
+    color: #003060;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+  
+  label {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    outline: none;
+    border-color: #34B5DF;
+    box-shadow: 0 0 5px rgba(52, 181, 223, 0.2);
+  }
+  
+  .btn-login {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #34B5DF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-login:hover {
+    background-color: #003060;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .signup-link {
+    color: #003060;
+    text-decoration: none;
+  }

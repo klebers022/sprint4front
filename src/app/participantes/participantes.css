@@ -1,0 +1,81 @@
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.034);
+  flex-grow: 1; /* Faz o container crescer para ocupar o espaço */
+  min-height: 100vh;
+  
+}
+
+.title {
+  text-align: center;
+  color: #34B5DF;
+  margin-bottom: 20px;
+  font-size: 50px;
+}
+
+.participant-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.participant-card {
+  background-color: #34B5DF;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 250px;
+  max-width: 250px;
+  text-align: center;
+  margin:  auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.726);
+  
+}
+
+.participant-photo {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.participant-name {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.participant-rm {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.participant-github {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 10px 0;
+  display: block;
+}
+
+.participant-socials {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.social-link:hover {
+  text-decoration: underline;
+}

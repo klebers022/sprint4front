@@ -1,0 +1,19 @@
+
+
+footer {
+    background-color: #003060; /* cor de fundo do rodapé */
+    color: white; /* cor do texto */
+    text-align: center; /* centralizar o texto */
+    padding: 20px; /* espaçamento interno */
+    font-size: 14px; /* tamanho da fonte */
+  }
+  
+  footer p {
+    margin: 8px 0; /* espaçamento entre parágrafos */
+  }
+  
+  footer p:hover {
+    color: #34B5DF; /* cor de destaque ao passar o mouse */
+    cursor: pointer;
+  }
+  
