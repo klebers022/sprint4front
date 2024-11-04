@@ -1,4 +1,3 @@
-// pages/login.tsx
 'use client';
 import Link from "next/link";
 import { useState } from "react";
@@ -81,7 +80,7 @@ const Login: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8080/api/cadastro", {
+      const response = await fetch("http://localhost:5050/Challenge_war/api/cadastro/dados", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -92,6 +91,8 @@ const Login: React.FC = () => {
       if (response.ok) {
         alert("Cadastro realizado com sucesso!");
       } else {
+        const errorData = await response.json();
+        console.error("Erro no cadastro:", errorData);
         alert("Erro ao realizar o cadastro. Tente novamente.");
       }
     } catch (error) {
