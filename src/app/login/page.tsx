@@ -1,8 +1,8 @@
-// src/app/login/page.tsx
+
 'use client'
 import { useState } from "react";
 import Link from 'next/link';
-import "./login.css"; // Importa o CSS para a estilização
+import "./login.css";
 
 const Login: React.FC = () => {
   const [formData, setFormData] = useState({ email: "", senha: "" });
@@ -20,11 +20,31 @@ const Login: React.FC = () => {
     e.preventDefault();
     setError("");
 
-    // Simulação de autenticação (substitua com a chamada para sua API)
-    if (formData.email === "usuario@exemplo.com" && formData.senha === "senha123") {
-      window.location.href = "/dashboard"; // Redireciona para o painel do usuário
-    } else {
-      setError("Credenciais inválidas. Tente novamente.");
+    try {
+      const response = await fetch('http://localhost:5050/Challenge_war/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          senha: formData.senha,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        // Verifique se a resposta indica sucesso no login
+        if (data.success) {
+          window.location.href = "/dashboard"; // Redireciona para o painel do usuário
+        } else {
+          setError("Credenciais inválidas. Tente novamente.");
+        }
+      } else {
+        setError("Erro ao conectar-se ao servidor. Tente novamente mais tarde.");
+      }
+    } catch (err) {
+      setError("Erro de conexão. Verifique sua internet.");
     }
   };
 

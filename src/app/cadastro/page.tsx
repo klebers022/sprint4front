@@ -1,9 +1,8 @@
 'use client';
-import Link from "next/link";
 import { useState } from "react";
 import "./cadastro.css";
 
-const Login: React.FC = () => {
+const Cadastro: React.FC = () => {
   const [formData, setFormData] = useState({
     nome: "",
     cpf: "",
@@ -24,14 +23,12 @@ const Login: React.FC = () => {
     cep: "",
   });
 
-  // Função para formatar o telefone
   const formatPhoneNumber = (value: string) => {
     const numericValue = value.replace(/\D/g, "");
     const formattedValue = numericValue.replace(/(\d{2})(\d{5})(\d{4})/, "+55 ($1) $2-$3");
     return formattedValue;
   };
 
-  // Função para buscar dados do CEP
   const fetchAddress = async (cep: string) => {
     try {
       const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
@@ -91,8 +88,6 @@ const Login: React.FC = () => {
       if (response.ok) {
         alert("Cadastro realizado com sucesso!");
       } else {
-        const errorData = await response.json();
-        console.error("Erro no cadastro:", errorData);
         alert("Erro ao realizar o cadastro. Tente novamente.");
       }
     } catch (error) {
@@ -107,7 +102,6 @@ const Login: React.FC = () => {
         <div className="container-cadastro">
           <h2>Cadastro Help Car</h2>
           <form id="cadastro-form" onSubmit={handleSubmit}>
-            {/* Informações do Usuário */}
             <fieldset>
               <legend>Informações Pessoais</legend>
               <div className="form-group">
@@ -132,7 +126,6 @@ const Login: React.FC = () => {
               </div>
             </fieldset>
 
-            {/* Informações do Veículo */}
             <fieldset>
               <legend>Informações do Veículo</legend>
               <div className="form-group">
@@ -153,21 +146,11 @@ const Login: React.FC = () => {
               </div>
             </fieldset>
 
-            {/* Informações de Endereço */}
             <fieldset>
               <legend>Informações de Endereço</legend>
               <div className="form-group">
                 <label htmlFor="cep">CEP</label>
-                <input
-                  type="text"
-                  id="cep"
-                  name="cep"
-                  placeholder="Digite seu CEP"
-                  value={formData.cep}
-                  onChange={handleChange}
-                  onBlur={handleBlur} // Chama a função ao sair do campo
-                  required
-                />
+                <input type="text" id="cep" name="cep" placeholder="Digite seu CEP" value={formData.cep} onChange={handleChange} onBlur={handleBlur} required />
               </div>
               <div className="form-group">
                 <label htmlFor="logradouro">Logradouro</label>
@@ -195,7 +178,6 @@ const Login: React.FC = () => {
               </div>
             </fieldset>
 
-            {/* Informações Adicionais */}
             <fieldset>
               <legend>Informações de Serviço</legend>
               <div className="form-group">
@@ -204,18 +186,14 @@ const Login: React.FC = () => {
               </div>
             </fieldset>
 
-            {/* Botão de Envio */}
             <div className="form-group">
               <button type="submit" className="btn btn-submit">Cadastrar</button>
             </div>
           </form>
-          <p className="link-login">
-            Já possui uma conta? <Link href="/login">Clique aqui</Link> para fazer login.
-          </p>
         </div>
       </section>
     </div>
   );
 };
 
-export default Login;
+export default Cadastro;
